@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Split Join Arrays JS</title>
+</head>
+
+<body>
+<script>
+	"use strict";
+
+	var planets = ['Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune'];
+	var planetsAsString = planets.join('|');
+	console.log(planetsAsString);
+
+
+	var planetsArray = ['Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune'];
+	var planetsArray = planetsAsString.split('|');
+	console.log(planetsArray);
+
+	function join(array, delimeter) {
+		var string = "";
+		array.forEach(function(element, index){
+			string = string + element + delimeter;
+
+		});
+		return string;
+	}
+	var result = join(planets, ",");
+	console.log(result)
+
+</script>
+</body>
+</html>
+
