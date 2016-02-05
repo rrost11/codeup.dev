@@ -1,15 +1,31 @@
-Create an HTML file named objects_intro_js.html within the ~/vagrant-lamp/sites/codeup.dev/public folder on your Mac.
-Copy and paste the code below as inline JavaScript and complete the todo items in the code.
-View the results in your browser to test for the expected output.
-Finally, save your work, commit the changes to your git repository, and push to GitHub.
-
-
-// todo:
+<!doctype html>
+<html>
+<head>
+	<title>Object Intro JS</title>
+</head>
+<body>
+	<script>// todo:
 // Create person object with firstName and lastName properties (set to your first and last name).
-// var person = todo;
+var person = new Object();
+console.log(typeof person);
+
+var person = {};
+console.log(typeof person);
+
+var person = {};
+person.firstName = "Rachel";
+person['lastName'] = "Rost";
+console.log(person.firstName,person.lastName);
 
 // todo:
 // Add a say hello method to the person object that alerts hello using the firstName and lastName properties.
 
 // Say hello from the person object.
-// person.sayHello();
+//person.sayHello();
+"sayHello": function() {
+	return person.sayHello();
+	
+}
+	</script>
+</body>
+</html>
