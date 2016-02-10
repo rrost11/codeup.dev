@@ -16,19 +16,23 @@ Finally, commit the changes to your git repository, and push to GitHub.
 
     <script>
         var detonationTimer = 5;
+        var interval = 1000;
+        var intervalId;
 
         // TODO: This function needs to be called once every second
         function updateTimer()
         {
             if (detonationTimer == 0) {
                 alert('EXTERMINATE!');
-                document.body.innerHTML = '';
+                document.body.innerHTML ="codeup.dev/graphics-bombs-923344.gif";
+                clearInterval(IntervalId);
             } else if (detonationTimer > 0) {
                 document.getElementById('timer').innerHTML = detonationTimer;
             }
 
             detonationTimer--;
         }
+        var intevalId = setInterval(updateTimer,interval);
 
         // TODO: When this function runs, it needs to
         // cancel the interval/timeout for updateTimer()
