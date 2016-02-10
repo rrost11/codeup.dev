@@ -7,16 +7,16 @@
 </head>
 <body>
 	
-	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/supernice.css">
 	<link rel="stylesheet" href="/css/calculator.css">
 
   <h1>Codeup Calculator</h1>
  
 
 <div class="form-group">
-  	<input id="left" type="text" readonly>
-	<input id="center" type="text" readonly>
-	<input id="right" type="text" readonly>
+  	<input id="left" type="text" readonly placeholder="numbers">
+	<input id="center" type="text" readonly placeholder="operators">
+	<input id="right" type="text" readonly placeholder="numbers">
 </div>
 
 
@@ -24,6 +24,7 @@
 <a href="#" id="btn%" class="btn btn-default btn-lg">%</a>
 <a href="#" id="btn$" class="btn btn-default btn-lg">$</a>
 <a href="#" id="btn/" class="btn btn-default btn-lg">/</a><br>
+
 
 <a href="#" id="btn7" class="btn btn-default btn-lg">7</a>
 <a href="#" id="btn8" class="btn btn-default btn-lg">8</a>
@@ -49,6 +50,26 @@
 <script>
 "use strict"
 
+//we need the ability to click buttions
+//need event listeners registered on all the buttons
+//have event listeners fire a function
+
+//function fired from a button click should
+
+	//when we press a button, we need the value to go to the screen
+	//click handler
+	//if the button is a number, add to right or left display
+	//if middle and right displays are empty, add numbers to left
+	//if middle or left display are not empty, add numbers to right
+	//if operator button, then add to center display
+//calculate the result when "=" is pressed
+//avoid NaN
+
+//<button class = "number" id="btn7"
+
+	//button class ='number'
+	//button clas = 'operator'
+
 var inputLeft = document.getElementById('left');
 var inputMiddle = document.getElementById('middle');
 var inputRight = document.getElementById('right');
@@ -61,15 +82,19 @@ var divide = document.getElementById('divide');
 var multiply = document.getElementById('multiply');
 var equals = document.getElementById('equals')
 
-funtion addNumberToScreen(event){
+
 	inputLeft.value += this.getAttribute('data-number');
 
-}
+
 for (var i = 0; i < numberButtons.length; i++) {
 	numberButtons[i].addEventListener("click", addNumberToScreen);
 }
-</div>
 
-</div>
+function addNumberToScreen() {
+	if(middle.value =='' || right.value =='') {
+		left.value += this.innerHTML;
+	}
+}
+
 </body>
 </html>
