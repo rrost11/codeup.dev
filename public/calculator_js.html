@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Codeup Calculator</title>
+	
+</head>
+<body>
+	
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/calculator.css">
+
+  <h1>Codeup Calculator</h1>
+ 
+
+<div class="form-group">
+  	<input id="left" type="text" readonly>
+	<input id="center" type="text" readonly>
+	<input id="right" type="text" readonly>
+</div>
+
+
+<a href="#" id="btnpm" class="btn btn-default btn-lg">+/-</a>
+<a href="#" id="btn%" class="btn btn-default btn-lg">%</a>
+<a href="#" id="btn$" class="btn btn-default btn-lg">$</a>
+<a href="#" id="btn/" class="btn btn-default btn-lg">/</a><br>
+
+<a href="#" id="btn7" class="btn btn-default btn-lg">7</a>
+<a href="#" id="btn8" class="btn btn-default btn-lg">8</a>
+<a href="#" id="btn9" class="btn btn-default btn-lg">9</a>
+<a href="#" id="btnx" class="btn btn-default btn-lg">x</a><br>
+
+<a href="#" id="btn4" class="btn btn-default btn-lg">4</a>
+<a href="#" id="btn5" class="btn btn-default btn-lg">5</a>
+<a href="#" id="btn6" class="btn btn-default btn-lg">6</a>
+<a href="#" id="btn-" class="btn btn-default btn-lg">-</a><br>
+
+<a href="#" id="btn1" class="btn btn-default btn-lg">1</a>
+<a href="#" id="btn2" class="btn btn-default btn-lg">2</a>
+<a href="#" id="btn3" class="btn btn-default btn-lg">3</a>
+<a href="#" id="btn+" class="btn btn-default btn-lg">+</a><br>
+
+<a href="#" id="btnAC" class="btn btn-default btn-lg">AC</a>
+<a href="#" id="btn0" class="btn btn-default btn-lg">0</a>
+<a href="#" id="btn." class="btn btn-default btn-lg">.</a>
+<a href="#" id="btn=" class="btn btn-default btn-lg">=</a><br>
+
+
+<script>
+"use strict"
+
+var inputLeft = document.getElementById('left');
+var inputMiddle = document.getElementById('middle');
+var inputRight = document.getElementById('right');
+
+var numberButtons = document.getELementsByClassName('number');
+
+var plus = document.getElementById('plus');
+var subtract = document.getElementById('substract');
+var divide = document.getElementById('divide');
+var multiply = document.getElementById('multiply');
+var equals = document.getElementById('equals')
+
+funtion addNumberToScreen(event){
+	inputLeft.value += this.getAttribute('data-number');
+
+}
+for (var i = 0; i < numberButtons.length; i++) {
+	numberButtons[i].addEventListener("click", addNumberToScreen);
+}
+</div>
+
+</div>
+</body>
+</html>
