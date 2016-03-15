@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery FAQ</title>
+    <style media="screen" type="text/css">
+        #national-parks,
+        {
+            display: none;
+        }
+    </style>
+    <script src="/js/jquery.js">
+    </script>
+    <script src=
+                    "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js">
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $('#toggle').click(function (e) {
+                e.preventDefault();
+                $('.dd').fadetoggle();
+            })
+
+            var uls = $('ul');
+
+            uls.each(function () {
+                console.log(this);
+                $(this).children().first().css('font-weight', 'bold');
+            });
+            $('li').click(function () {
+                $(this).parent().addClass('invisible');
+                console.log(this)
+            });
+            $(h3).click(function)
+            $(this).next().fadeToggle();
+        }
+
+        $(document).ready(function () {
+            $('#national-parks-toggle').click(function () {
+                $('#national-parks').hide();
+            });
+
+        });
+
+
+    </script>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<button id='toggle'>Toggle Here</button>
+
+<h1>National Park Frequently Asked Questions</h1>
+
+
+<dl>
+    <dt>1. What is the difference between a national park and a
+        national forest?
+    </dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>National parks are administered by the
+        Department of the Interior and national forests by the
+        Department of Agriculture. The National Park Service is
+        mandated to preserve resources unimpaired, while the Forest
+        Service is mandated to wisely manage resources for many
+        sustainable uses. Six national forests surround Yellowstone
+        National Park.
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>2. How old is the National Park System?</dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>The National Park Service was created by
+        an act signed by President Woodrow Wilson on August 25, 1916.
+        Yellowstone National Park was established by an Act signed by
+        President Ulysses S. Grant on March 1, 1872, as the nation's
+        first national park. View the National Park System
+        timeline.
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>3. What is the origin of the National Park Service
+        arrowhead?
+    </dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>The arrowhead was authorized as the
+        official National Park Service emblem by the Secretary of the
+        Interior on July 20, 1951. The components of the arrowhead may
+        have been inspired by key attributes of the National Park
+        System, with the sequoia tree and bison representing vegetation
+        and wildlife, the mountains and water representing scenic and
+        recreational values, and the arrowhead itself representing
+        historical and archeological values.
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>4. How many people visit the national parks?</dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>Total recreation visitors to the national
+        parks in 2014: 292,800,082
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>5. How many employees are in the National Park
+        Service?
+    </dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>Permanent, temporary, and seasonal:
+        Approximately 22,000 diverse professionals<br>
+        Volunteers in Parks: 221,000
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>6. What government agency oversees the National Park
+        Service?
+    </dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>The National Park Service is a bureau of
+        the Department of the Interior. Directly overseeing its
+        operation is the Department's Assistant Secretary for Fish,
+        Wildlife and Parks.
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>7. What is the largest national park site? Smallest?</dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>Largest: Wrangell-St. Elias National Park
+        and Preserve, AK, at 13.2 million acres<br>
+        Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02
+        acres
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>8. What is the National Park Service budget?</dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>FY 2014 Enacted: $2.98 billion<br>
+        FY 2015 Request: $3.65 billion
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>9. How do I obtain a park pass?</dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>You can obtain park passes by visiting
+        your nearest park site. Most sites have passes available; we
+        recommend calling a park prior to your visit.
+    </dd>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dt>10. Where can I find a park map?</dt>
+
+
+    <dd><br>
+    </dd>
+
+
+    <dd class='invisible'>You can view maps on specific park
+        websites or download maps from the Harpers Ferry Center map
+        collection.
+    </dd>
+
+
+    <dd><br>
+    </dd>
+</dl>
+<br>
+
+
+<h2>National Parks</h2>
+
+
+<ul id='national-parks'>
+    <li style="list-style: none; display: inline">
+        <h3 id='national-parks-toggle'>Acadia National
+            Park</h3>
+    </li>
+
+
+    <li>Fact 1</li>
+
+
+    <li>Fact 2</li>
+
+
+    <li>Fact 3</li>
+
+
+    <li>Fact 4</li>
+
+    <li style="list-style: none; display: inline">
+        <h3 id='national-parks-toggle'>Olympic National
+            Park</h3>
+    </li>
+
+
+    <li>Fact 1</li>
+
+
+    <li>Fact 2</li>
+
+
+    <li>Fact 3</li>
+
+
+    <li>Fact 4</li>
+
+    <li style="list-style: none; display: inline">
+        <h3 id='national-parks-toggle'>Great Smoky Mountains
+            National Park</h3>
+    </li>
+
+
+    <li>Fact 1</li>
+
+
+    <li>Fact 2</li>
+
+
+    <li>Fact 3</li>
+
+
+    <li>Fact 4</li>
+</ul>
+
+
+</body>
+</html>
