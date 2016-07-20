@@ -1,4 +1,2 @@
-
-"use strict";
-
-console.log('Hello from External JavaScript!');
+"use strict"
+console.log("Hello From External JavaScript!");

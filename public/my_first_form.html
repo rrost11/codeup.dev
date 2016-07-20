@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            My First Form
+        </title>
+    </head>
+    <body>
+        <h2>
+            User Login
+        </h2>
+        <form method="POST" action="http://requestb.in/t0mowwt0">
+            <p>
+                <label for="username">
+                    Username
+                </label>
+                <input id="username" name="username" type="text" placeholder="Enter your username"/>
+            </p>
+            <p>
+                <label for="password">
+                    Password
+                </label>
+                <input id="password" name="password" type="password" placeholder="Enter your password"/>
+            </p>
+            <p>
+                <button type="submit" name="submit">
+                    Login
+                </button>
+            </p>
+        </form>
+        <br/>
+        <br/>
+        <h2>
+            Compose An Email
+        </h2>
+        <form method="POST" action="http://requestb.in/t0mowwt0">
+            <p>
+                <label for="to">
+                    To:
+                </label>
+                <input type="text" id="to" name="to" placeholder="recipient email address"/>
+            </p>
+            <p>
+                <label for="from">
+                    From:
+                </label>
+                <input type="text" id="from" name="from" placeholder="your email address"/>
+            </p>
+            <p>
+                <label for="subject">
+                    Subject:
+                </label>
+                <input type="text" id="subject" name="subject" placeholder="enter subject"/>
+            </p>
+            <p>
+                <textarea id="email_body" name="email_body" rows="5" cols="40">
+                    Enter content here
+                </textarea>
+            </p>
+            <p>
+                <input type="checkbox" id="sent_folder" name="sent_folder" value="yes" checked/>
+                <label for="sent_folder">
+                    Would you like to save a copy of this email to your Sent Folder?
+                </label>
+            </p>
+            <p>
+                <button type="send" name="send">
+                    Send
+                </button>
+            </p>
+        </form>
+        <br/>
+        <br/>
+        <h2>
+            Multiple Choice Test
+        </h2>
+        <form method="POST" action="http://requestb.in/t0mowwt0">
+            <p>
+                What color is Codeup's Logo?
+            </p>
+            <label>
+                <input type="radio" name="q1" value="red"/>
+                Red
+            </label>
+            <label>
+                <input type="radio" name="q1" value="yellow"/>
+                Yellow
+            </label>
+            <label>
+                <input type="radio" name="q1" value="green"/>
+                Green
+            </label>
+            <label>
+                <input type="radio" name="q1" value="purple"/>
+                Purple
+            </label>
+            <br/>
+            <p>
+                What language is not taught at Codeup?
+            </p>
+            <label>
+                <input type="radio" name="q2" value="PHP"/>
+                PHP
+            </label>
+            <label>
+                <input type="radio" name="q2" value="CSS"/>
+                CSS
+            </label>
+            <label>
+                <input type="radio" name="q2" value="Java"/>
+                Java
+            </label>
+            <label>
+                <input type="radio" name="q2" value="JavaScript"/>
+                JavaScript
+            </label>
+            <br/>
+            <p>
+                Which cities have you visited?
+            </p>
+            <label>
+                <input type="checkbox" id="chicago" name="city[]" value="Chicago"/>
+                Chicago
+            </label>
+            <label>
+                <input type="checkbox" id="denver" name="city[]" value="Denver"/>
+                Denver
+            </label>
+            <label>
+                <input type="checkbox" id="sandiego" name="city[]" value="San Diego"/>
+                San Diego
+            </label>
+            <br/>
+            <label>
+                <input type="checkbox" id="boston" name="city[]" value="Boston"/>
+                Boston
+            </label>
+            <label>
+                <input type="checkbox" id="miami" name="city[]" value="Miami"/>
+                Miami
+            </label>
+            <label>
+                <input type="checkbox" id="philadelphia" name="city[]" value="Philadelphia"/>
+                Philadelphia
+            </label>
+            <br/>
+            <label>
+                <input type="checkbox" id="phoenix" name="city[]" value="Phoenix"/>
+                Phoenix
+            </label>
+            <label>
+                <input type="checkbox" id="detroit" name="city[]" value="Detroit"/>
+                Detroit
+            </label>
+            <label>
+                <input type="checkbox" id="seattle" name="city[]" value="Seattle"/>
+                Seattle
+            </label>
+            <br/>
+            <p>
+                <label for="os">
+                    What operating systems have you used?
+                </label>
+                <br/>
+                <select id="os" name="os[]" multiple>
+                    <option value="linux">
+                        Linux
+                    </option>
+                    <option value="osx">
+                        OS X
+                    </option>
+                    <option value="windows">
+                        Windows
+                    </option>
+                    <option value="unix">
+                        Unix
+                    </option>
+                </select>
+            </p>
+            <p>
+                <button type="submit_answer" name="submit_answer">
+                    Submit
+                </button>
+            </p>
+        </form>
+        <br/>
+        <h2>
+            Select Testing
+        </h2>
+        <form method="POST" action="http://requestb.in/t0mowwt0">
+            <p>
+                <label for="ski">
+                    Do you know how to snow ski?
+                </label>
+                <select id="ski" name="ski">
+                    <option value="1">
+                        Yes
+                    </option>
+                    <option value="0" selected>
+                        No
+                    </option>
+                </select>
+            </p>
+            <p>
+                <button type="submit_answer" name="submit_answer">
+                    Submit
+                </button>
+            </p>
+        </form>
+    </body>
+</html>
