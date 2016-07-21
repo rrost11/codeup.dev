@@ -3,6 +3,12 @@ h1 {
     text-decoration: underline;
 }
 
+.container {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+
 .box {
     width: 50px;
     height: 50px;
@@ -14,30 +20,13 @@ h1 {
 }
 
 #arrow {
-    position: relative;
-    left: 82px;
+    padding-left: 82px;
+    margin-bottom: -10px;
 }
 
 #ribbon {
     float: right;
     position: static;
-}
-
-#column1 {
-    float: left;
-
-}
-
-#column2 {
-    float: left;
-
-
-}
-
-#column3 {
-    float: left;
-
-
 }
 
 #red {
