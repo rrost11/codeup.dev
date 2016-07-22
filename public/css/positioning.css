@@ -1,54 +1,75 @@
 h1 {
     color: purple;
     text-decoration: underline;
+    margin-bottom: 50px;
 }
 
-.container {
-    width: 500px;
+
+/*.container {
+    width: 375px;
     height: 200px;
     border: 1px solid black;
-}
+}*/
 
 .box {
     width: 50px;
     height: 50px;
-    padding: 11px;
-    margin: 10px;
+    padding: 10px;
     border: 1px solid black;
+    margin-bottom: 5px;
+    margin-right: 5px;
     font-weight: bold;
     color: white;
+    position: relative;
 }
 
 #arrow {
-    padding-left: 82px;
-    margin-bottom: -10px;
+    position: relative;
+    bottom: 102px;
+    left: 40px;
 }
 
 #ribbon {
     float: right;
     position: static;
+    margin-top: -21px;
+    margin-right: -8px;
 }
 
 #red {
     background-color: red;
+    float: left;
 }
 
 #orange {
     background-color: orange;
+    float: left;
+    left: 45px;
 }
 
 #yellow {
     background-color: yellow;
+    float: left;
+    left: 95px;
 }
 
 #green {
     background-color: green;
+    clear: left;
+    float: left;
+    top: 45px;
 }
 
 #blue {
     background-color: blue;
+    float: left;
+    top: 45px;
+    left: 45px;
 }
 
 #violet {
     background-color: violet;
+    float: left;
+    top: 45px;
+    left: 95px;
 }

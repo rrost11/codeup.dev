@@ -3,12 +3,13 @@ h1 {
     text-decoration: underline;
 }
 
-div {
+.box {
     width: 150px;
     height: 50px;
-    padding: 11px;
+    padding: 10px;
     border: 1px solid black;
-    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-weight: bold;
     color: white;
 }
@@ -19,25 +20,25 @@ div {
 
 #orange {
     background-color: orange;
-    margin-left: +40px;
+    margin-left: 30px;
 }
 
 #yellow {
     background-color: yellow;
-    margin-left: +70px;
+    margin-left: 60px;
 }
 
 #green {
     background-color: green;
-    margin-left: +100px;
+    margin-left: 90px;
 }
 
 #blue {
     background-color: blue;
-    margin-left: +130px;
+    margin-left: 120px;
 }
 
 #violet {
     background-color: violet;
-    margin-left: +160px;
+    margin-left: 150px;
 }
