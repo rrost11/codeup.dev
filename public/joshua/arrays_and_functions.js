@@ -1,8 +1,8 @@
 var movies = ['Steel Magnolias', 'Life As A House', 'Cider House Rules', 'The Hundred Foot Journey', 'Field of Dreams', 'Taken', 'Sneakers', "Ocean's Eleven", 'Lethal Weapon', 'Urban Cowboy', 'Forrest Gump', 'The Devil Wears Prada', 'Prime', 'Thelma & Louise', 'Stepmom', 'A Time To Kill', 'Hope Floats'];
 
 function favoriteMovies() {
-	"use strict";
-	console.log(movies);
+    "use strict";
+    console.log(movies);
 }
 console.log('Here is a list of movies:');
 console.log(movies);
@@ -34,8 +34,8 @@ var fave = "Thelma & Louise";
 var least = "Prime";
 
 function nameFave() {
-	"use strict";
-	console.log(fave);
+    "use strict";
+    console.log(fave);
 }
 
 console.log("My all time favorite movie is");
