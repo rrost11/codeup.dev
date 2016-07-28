@@ -34,12 +34,10 @@ var finalAmount;
 
 if (salesAmount > 200) {
     finalAmount = salesAmount - (salesAmount * discount);
-    console.log(person + " purhcased $" + salesAmount + " and a 35% discount was applied. Final payment is: $"
-        + finalAmount);
+    console.log(person + " purhcased $" + salesAmount + " and a 35% discount was applied. Final payment is: $" + finalAmount);
 } else {
     finalAmount = salesAmount;
-    console.log(person + " purchased $" + salesAmount + " and no discount was applied.  Final payment is: $"
-       + finalAmount);
+    console.log(person + " purchased $" + salesAmount + " and no discount was applied.  Final payment is: $" + finalAmount);
 }
 
 var person = "Cameron";
@@ -47,12 +45,10 @@ var salesAmount = 250;
 
 if (salesAmount > 200) {
     finalAmount = salesAmount - (salesAmount * discount);
-    console.log(person + " purhcased $" + salesAmount + " and a 35% discount was applied. Final payment is: $"
-       + finalAmount);
+    console.log(person + " purhcased $" + salesAmount + " and a 35% discount was applied. Final payment is: $" + finalAmount);
 } else {
     finalAmount = salesAmount;
-    console.log(person + " purchased $" + salesAmount + "and no discount was applied.  Final payment is: $"
-       + finalAmount);
+    console.log(person + " purchased $" + salesAmount + "and no discount was applied.  Final payment is: $" + finalAmount);
 }
 
 
@@ -62,12 +58,10 @@ var salesAmount = 320;
 
 if (salesAmount > 200) {
     finalAmount = salesAmount - (salesAmount * discount);
-    console.log(person + " purhcased $" + salesAmount + " and a 35% discount was applied. Final payment is: $"
-        + finalAmount);
+    console.log(person + " purhcased $" + salesAmount + " and a 35% discount was applied. Final payment is: $" + finalAmount);
 } else {
     finalAmount = salesAmount;
-    console.log(person + " purchased $" + salesAmount + "and no discount was applied.  Final payment is: $"
-       + finalAmount);
+    console.log(person + " purchased $" + salesAmount + "and no discount was applied.  Final payment is: $" + finalAmount);
 }
 
 
