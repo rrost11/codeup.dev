@@ -1,0 +1,41 @@
+What are functions?
+	- Sequence of steps that give directions
+	- Algorithm
+	- Resuable code
+	- Repeatable code
+	- Takes input, puts output
+
+What do functions do?
+	- Do verbs, hand us nouns
+	- Do a sequence of steps
+	- Allow us to name that sequence of steps
+
+When do you use functions?
+	- When you have a related sequence of steps
+	- When we're going to reuse soemthing
+	- When naming a chunk of code helps us understand what that code does
+
+Why do we use functions?
+	- Reason about the business logic
+	- We're able to code as close to natural language as possible
+
+What does return do?
+	- Return gives us a value as output
+	- Stopes the function
+
+
+Return vs. Console.log at the end of a function
+
+function isOdd(number) {
+	var output = (number % 2 == 0) ? true : false;
+	return output;
+}
+
+
+function isOdd(number) {
+	var output = (number % 2 == 0) ? true : false;
+	console.log output;
+}
+
+
+In JavaScript - if you don't have a return, it returns "undefined"
