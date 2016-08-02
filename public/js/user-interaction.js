@@ -2,15 +2,24 @@
 
 var name = prompt("Please enter your name: ");
 
-	if(name = ""){
-		prompt("Please enter your name: ");
-	} else {
-		alert("Welcome" + name);
-	}
+if (name == "") {
+    alert("Please enter your name: ");
+} else {
+    alert("Welcome " + name + "!  Codeup.dev says Hi!");
+}
 
-var pizzaLike = prompt("Do you like pizza?");
-	
-		
+var userLikesPizza = confirm(name + ", do you like pizza?");
+
+if (userLikesPizza) {
+
+    alert('Awesome, I love pizza too! ' + name + ", you have great taste!");
+
+} else {
+
+    alert(name + " ... No way! Pizza is delicious. Maybe you should try it again to see what you're missing out on!");
+}
+
+
 
 
 
