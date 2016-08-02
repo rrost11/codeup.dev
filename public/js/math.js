@@ -11,33 +11,89 @@
 // Write a function called isNumeric(number) that returns a boolean -->
 
 
+// modify your math.js file to do the following: 
+
+// 1. on page load ask the user what they would like to do: 
+//    (add, subtract, divide, multiply)
+
+//    based on the user's response, get numbers from the user to pass into your math functions
+
+//    ensure the user's inputs are valid!
+
+// --------------------------------------------------------------------------------
+
+// 2. write a function averageOfThree that takes 3 numbers and returns their average
+
+//    add functionality to allow the user to square a number, or average 3 numbers
+
+//    (note that now you will not always have just 2 inputs!)
+
+
 "use strict";
 
 
-function userChoosesMath(a, b) {
+function userChoosesMath(x, y) {
 
     var mathType = prompt("Would you like to add, subtract, multiply or divide?");
 
     if (mathType == ("add" || "subtract") || ("multiply" || "divide")) {
+        
         var firstNumber = prompt("Please enter the first number you would like to " + mathType + ": ");
+
         var secondNumber = prompt("Please enter the second number you would like to " + mathType + ": ");
+            
+                function isNumeric(firstNumber, secondNumber) {
+
+                    var result;
+
+                    if ((isNaN(firstNumber)) || (isNaN(secondNumber)))  {
+
+                        result = alert("You did not enter a valid number.  Please start over and enter valid numbers."); 
+                        return result;
+                    
+                        } else {
+                        
+                        result = alert("You have chosen to " + mathType + " the numbers: " + firstNumber + " and " + secondNumber + ".");
+                        return result;
+                    
+                    }
+                
+
+
+            }
+
 
     } else {
 
-        var mathType = prompt("You must select what type of math you would like to do.  Would you like to add, subtract, mulitply or divide?");
-        var firstNumber = prompt("Please enter the first number you would like to " + mathType + ": ");
-        var secondNumber = prompt("Please enter the second number you would like to " + mathType + ": ");
+        var mathType = prompt("You must select what type of math you would like to do.  Please start over");
 
+        return mathType;
+        
         }
-    }
+    
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------------Is x a Number?--------------------------------
 
 
 function isNumeric(x) {
-    if (isNaN(x)) {
+    if (isNaN(x))  {
 
         return false;
 
@@ -46,6 +102,8 @@ function isNumeric(x) {
         return true;
     }
 }
+
+
 
 // Exercise #1-------------------Sum----------------------------------------------
 
@@ -231,9 +289,10 @@ function isNumeric(x) {
 
         return true;
     }
-}
+
 
 console.log(isNumeric(2));
 console.log(isNumeric("1"));
 console.log(isNumeric("string"));
 console.log(isNumeric(null));
+
