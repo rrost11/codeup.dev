@@ -11,7 +11,7 @@
 //   - defines the function *does not* run the code in the body
 //   - syntax errors will be caught, not logical ones 
 
-function doSomething () {
+function doSomething (empytyArray) {
     1 + 1;
     console.log('happy monday guys!');
 }
