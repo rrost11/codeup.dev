@@ -28,7 +28,7 @@ function isNumeric(x) {
 // Exercise #1-------------------Sum----------------------------------------------
 
 function sumTwoNumbers(x, y) {
-    
+
     var result;
 
     if (isNumeric(x) && isNumeric(y)) {
@@ -36,7 +36,7 @@ function sumTwoNumbers(x, y) {
         return result;
 
     } else {
-        
+
         return "Inputs must be numeric";
     }
 }
@@ -53,15 +53,15 @@ console.log(sumTwoNumbers(0, 1));
 // Exercise #2------------------Subtract-------------------------------------------
 
 function subtractTwoNumbers(a, b) {
-    
+
     var result;
 
     if (isNumeric(a) && isNumeric(b)) {
         result = a - b;
         return result;
-        
+
     } else {
-        
+
         return "Inputs must be numeric";
     }
 }
@@ -80,20 +80,20 @@ console.log(subtractTwoNumbers(0, 1));
 
 
 function multiplyTwoNumbers(c, d) {
-    
+
     var result;
 
     if (isNumeric(c) && isNumeric(d)) {
         result = c * d;
         return result;
-        
+
     } else {
-        
+
         return "Inputs must be numeric";
     }
 }
 
-    
+
 
 console.log(multiplyTwoNumbers(5, 22));
 console.log(multiplyTwoNumbers(10, 23));
@@ -134,7 +134,7 @@ console.log(divideTwoNumbers(1, 2));
 
 function squareANumber(x) {
 
-	var result;
+    var result;
 
     if (isNumeric(x)) {
 
@@ -158,7 +158,7 @@ console.log(squareANumber(12));
 
 
 function sumTwoSquares(a, b) {
-    
+
     var result;
 
     if (isNumeric(a) && isNumeric(b)) {
@@ -215,4 +215,3 @@ console.log(isNumeric(2));
 console.log(isNumeric("1"));
 console.log(isNumeric("string"));
 console.log(isNumeric(null));
-
