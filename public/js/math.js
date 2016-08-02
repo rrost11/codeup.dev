@@ -6,12 +6,34 @@
 // Square a number without using the * operator
 // Sum two squares without using * or + -->
 // Add functionality for each function that makes sure the parameters are numbers
-// 	if one of the parameters is not a number return "inputs must be numeric
+//  if one of the parameters is not a number return "inputs must be numeric
 // Add functionality to divide() to notify if you divide by zero
-// Write a function called isNumeric(number) that returns a boolean	-->
+// Write a function called isNumeric(number) that returns a boolean -->
 
 
 "use strict";
+
+
+function userChoosesMath(a, b) {
+
+    var mathType = prompt("Would you like to add, subtract, multiply or divide?");
+
+    if (mathType == ("add" || "subtract") || ("multiply" || "divide")) {
+        var firstNumber = prompt("Please enter the first number you would like to " + mathType + ": ");
+        var secondNumber = prompt("Please enter the second number you would like to " + mathType + ": ");
+
+    } else {
+
+        var mathType = prompt("You must select what type of math you would like to do.  Would you like to add, subtract, mulitply or divide?");
+        var firstNumber = prompt("Please enter the first number you would like to " + mathType + ": ");
+        var secondNumber = prompt("Please enter the second number you would like to " + mathType + ": ");
+
+        }
+    }
+
+
+
+
 
 
 function isNumeric(x) {
