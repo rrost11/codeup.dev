@@ -6,7 +6,7 @@
 // Square a number without using the * operator
 // Sum two squares without using * or + -->
 // Add functionality for each function that makes sure the parameters are numbers
-// 	if one fo the parameters is not a number return "inputs must be numeric
+// 	if one of the parameters is not a number return "inputs must be numeric
 // Add functionality to divide() to notify if you divide by zero
 // Write a function called isNumeric(number) that returns a boolean	-->
 
@@ -14,161 +14,205 @@
 "use strict";
 
 
-// Exercise #1-------------------Sum----------------------------------------------
+function isNumeric(x) {
+    if (isNaN(x)) {
 
-function sumItUp(x,y){
-	var x;
-	var y;
-	var result;
-	
-	result = x + y;
+        return false;
 
-	return result;
+    } else {
 
-
-
+        return true;
+    }
 }
 
-console.log(sumItUp(5,22));
-console.log(sumItUp(100,23));
-console.log(sumItUp(3,3));
-console.log(sumItUp(1000,2200));
-console.log(sumItUp(0,1));
+// Exercise #1-------------------Sum----------------------------------------------
+
+function sumTwoNumbers(x, y) {
+    
+    var result;
+
+    if (isNumeric(x) && isNumeric(y)) {
+        result = x + y;
+        return result;
+
+    } else {
+        
+        return "Inputs must be numeric";
+    }
+}
+
+
+
+console.log(sumTwoNumbers(5, 22));
+console.log(sumTwoNumbers(100, 23));
+console.log(sumTwoNumbers(3, 3));
+console.log(sumTwoNumbers(1000, 2200));
+console.log(sumTwoNumbers(0, 1));
 
 
 // Exercise #2------------------Subtract-------------------------------------------
 
-function subtract(a,b){
-	var a;
-	var b;
-	var result;
+function subtractTwoNumbers(a, b) {
+    
+    var result;
 
-	result = a - b;
-
-	return result;
+    if (isNumeric(a) && isNumeric(b)) {
+        result = a - b;
+        return result;
+        
+    } else {
+        
+        return "Inputs must be numeric";
+    }
 }
 
 
-console.log(subtract(5,22));
-console.log(subtract(100,23));
-console.log(subtract(3,3));
-console.log(subtract(100,220));
-console.log(subtract(0,1));
+
+console.log(subtractTwoNumbers(5, 22));
+console.log(subtractTwoNumbers(100, 23));
+console.log(subtractTwoNumbers(3, 3));
+console.log(subtractTwoNumbers(100, 220));
+console.log(subtractTwoNumbers(0, 1));
 
 
 
 // Exercise #3--------------------Multiply------------------------------------------
 
 
-function multiply(c,d){
-	var c;
-	var d;
-	var result;
+function multiplyTwoNumbers(c, d) {
+    
+    var result;
 
-	result = c * d;
-
-	return result;
+    if (isNumeric(c) && isNumeric(d)) {
+        result = c * d;
+        return result;
+        
+    } else {
+        
+        return "Inputs must be numeric";
+    }
 }
 
-console.log(multiply(5,22));
-console.log(multiply(10,23));
-console.log(multiply(3,3));
-console.log(multiply(1000,2));
-console.log(multiply(0,1));
+    
+
+console.log(multiplyTwoNumbers(5, 22));
+console.log(multiplyTwoNumbers(10, 23));
+console.log(multiplyTwoNumbers(3, 3));
+console.log(multiplyTwoNumbers(1000, 2));
+console.log(multiplyTwoNumbers(0, 1));
 
 
 // Exercise #4-------------------------Divide------------------------------------------
 
-function divide(e,f){
+function divideTwoNumbers(e, f) {
 
-	var e;
-	var f;
-	var result;
 
-	result = e/f;
+    var result;
 
-	if (f == 0){
+    result = e / f;
 
-		return("You tried to divide by Zero");
+    if (f === 0) {
 
-	} else {
+        return ("You tried to divide by Zero");
 
-	return result;}
+    } else {
+
+        return result;
+    }
 }
 
-console.log(divide(20,4));
-console.log(divide(30,2));
-console.log(divide(3,0));
-console.log(divide(100,2));
-console.log(divide(1,2));
+console.log(divideTwoNumbers(20, 4));
+console.log(divideTwoNumbers(30, 2));
+console.log(divideTwoNumbers(3, 0));
+console.log(divideTwoNumbers(100, 2));
+console.log(divideTwoNumbers(1, 2));
 
 
 // Exercise #5---------------------------Square A Number----------------------------------------
 
-function squareIt(c,d,fn){
 
-	function multiply(c,d){
-	var c;
-	var d;
+
+function squareANumber(x) {
+
 	var result;
 
-	result = c * d;
+    if (isNumeric(x)) {
 
-	return result;
+        result = multiplyTwoNumbers(x, x);
+
+        return result;
+
+    } else {
+
+        return "Inputs must be numeric";
+    }
 }
 
-}
-
+console.log(squareANumber(2));
+console.log(squareANumber(4));
+console.log(squareANumber(3));
+console.log(squareANumber(10));
+console.log(squareANumber(12));
 
 // Exercise #6---------------------------Sum of Squares------------------------------------
 
 
+function sumTwoSquares(a, b) {
+    
+    var result;
 
+    if (isNumeric(a) && isNumeric(b)) {
 
+        result = sumTwoNumbers(squareANumber(a), squareANumber(b));
 
+        return result;
 
+    } else {
 
-
-
-
-
-
-
-// Exercise #7---------------------------isNumeric(number) and return Boolean------------------
-
-
-function isNumeric(number){
-
-
-
-	return Boolean(number);
-
-	
+        return "Inputs must be numeric";
+    }
 }
 
-console.log(isNumeric(5));
-console.log(isNumeric(0));
-console.log(isNumeric(-8));
-console.log(isNumeric(0));
-console.log(isNumeric(1));
+console.log(sumTwoSquares(20, 4));
+console.log(sumTwoSquares(30, 2));
+console.log(sumTwoSquares(3, 0));
+console.log(sumTwoSquares(100, 2));
+console.log(sumTwoSquares(1, 2));
+
+// Exercise #7---------------------------Convert number to boolean------------------
+
+
+function numberToBoolean(x) {
+
+    return Boolean(x);
+
+
+}
+
+console.log(numberToBoolean(5));
+console.log(numberToBoolean(0));
+console.log(numberToBoolean(-8));
+console.log(numberToBoolean(0));
+console.log(numberToBoolean(1));
 
 
 
 // ----------------------------------------------------------------------------------------------
 
 
-function sum(a,b){
-	if(isNumeric(a) && isNumeric(b)){
-		return a + b;
-	} else {
-		return "Inputs must be numeric.";
-	}
+function isNumeric(x) {
+    if (isNaN(x)) {
+
+        return false;
+
+    } else {
+
+        return true;
+    }
 }
 
-console.log(sum(2,2));
-console.log(sum("1",20));
-console.log(sum("string",20));
-console.log(sum(NaN,20));
-
-
+console.log(isNumeric(2));
+console.log(isNumeric("1"));
+console.log(isNumeric("string"));
+console.log(isNumeric(null));
 
