@@ -20,5 +20,26 @@
     console.log(names[2]);
     console.log(names[3]);
 
+var element;
+
+for (var i = 0; i < names.length; i += 1) {
+	element = names[i];
+	console.log(element);
+
+}
+
+var namesInReverseOrder = [];
+var namesInReverseOrder = names.reverse();
+
+	for (var i = 3; i >= 0; i -= 1) {
+		element = names[i];
+		console.log(element);
+
+	}
+// -----------------------------------------------For Each Loop Iterating Array----------------------------
+
+names.forEach(function(element, index, array) {
+	console.log(element);
+})
 
 })();
