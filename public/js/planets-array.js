@@ -96,7 +96,6 @@
 
     console.log(planetsAsString);
 
-
 // ------------------------------Split the Variable with Pipes---------------------------------
 
 
