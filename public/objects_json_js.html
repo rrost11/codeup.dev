@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Objects JavaScript Exercise
+    </title>
+    <script>
+    "use strict";
+
+    var books = [{
+            "author": {
+                "firstName": 'Dr.',
+                "lastName": 'Seuss'
+            },
+            "title": 'Green Eggs & Ham',
+        },
+
+        {
+            "author": {
+                "firstName": "Roald",
+                "lastName": "Dahl"
+            },
+            "title": 'James & The Giant Peach',
+        }, {
+
+            "author": {
+                "firstName": "Ernest",
+                "lastName": "Hemingway"
+            },
+            "title": 'The Old Man & The Sea',
+        }, {
+            "author": {
+                "firstName": "Mark",
+                "lastName": "Twain"
+
+            },
+            "title": 'The Adventures of Huckleberry Finn',
+        }, {
+            "author": {
+                "firstName": "John",
+                "lastName": "Steinbeck"
+            },
+            "title": 'Of Mice & Men'
+        }
+    ]
+
+
+
+
+    // todo:
+    // Create an array of objects that represent books.
+    // Each book should have a title and an author.
+    // The book author should be an object with a firstName and lastName.
+    // Be creative and add at least 5 books to the array
+
+
+    // log out the books array
+    // console.log(books);
+   
+    // Loop through the array of books using .forEach and print out the specified information about each one.
+    // start loop here
+
+
+    books.forEach(function(book, index, array) {
+
+        console.log("Book #" + (index + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName + ".");
+        console.log("---");
+
+    });
+
+
+    // end loop here
+    </script>
+</head>
+
+<body>
+    <h1>
+			JSON Objects JavaScript Exercise
+		</h1>
+    <br/>
+    <br/>
+    <h3>
+			Open the JavaScript Console To See Results
+		</h3>
+    <br>
+    <h3><a href= "http://codeup.dev/">Return to codeup.dev</a></h3>
+</body>
+
+</html>
