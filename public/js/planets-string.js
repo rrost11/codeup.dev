@@ -24,43 +24,11 @@
     // You will need an opening AND closing <ul> tags around the entire string, and <li> tags 
     // around each planet. 
     // console.log() your results.
-    var planetsArray = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+    
 
-    console.log(planetsArray);
-
-    function planetsStringUnorderList(listItems) {
-
-        var planetsArray = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
-        
-        console.log("<ul>");
-
-        var planetsStringItems = planetsArray.split();
-
-        for /*
-            Description:
-            The forEach() method executes a provided function once per array element.
-        
-            Syntax:
-            arr.forEach(callback[, thisArg])
-        */
-
-        return planetsarray.split;
-
-        console.log(planetsarray.split);
-
-        console.log("</ul>");
-
-    }
-
-    // "<li>" + '' + "</li>"
-
-    console.log(planetsStringUnorderList);
-
-
-
-
-
-
+    var stringy = planetsArray.join("</li><li>");
+    stringy = "<ul><li>" + stringy + "</li></ul>";
+    console.log(stringy);
 
 
 
