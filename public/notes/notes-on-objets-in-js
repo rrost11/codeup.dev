@@ -1,0 +1,38 @@
+Notes on Objets in JS
+
+
+An object is a grouping of data and functionality. Data items contained in an object are referred to as properties, and functions on an object are referred to as methods.
+
+
+The use of new Object() calls the Object constructor to build a new instance of Object.
+
+Object Literal Notation
+	- Fancy way of saying that the object uses {curyl braces}
+
+
+
+JavaScript does not have a concept of classes. Instead, JavaScript uses something called prototypes. Prototypes allow existing objects to be used as templates to create new objects. Let's look at the base object, Object, which is the starting point for developers to make their own custom objects.
+
+
+
+A method is a vocabulary word for a function that lives on an object. Besides having data properties, an object can also have functions, known as object methods. Creating a method on an object is much like creating a property, except the property value is a function.
+
+
+
+Object properties are accessed in the same way they are set, either via dot notation or array notation.
+
+
+Object Literal Notation
+	- Fancy way of saying that the object uses {curyl braces}
+
+
+
+
+The this keyword in JavaScript is a bit more complicated than in other languages. In other languages like PHP, this is simply a reference to the current object. In JavaScript, this can refer to a different object based on how a function is called. However, the intricacies of this are a more advanced topic. For our exercises, you will be able to use this as you would in PHP.
+
+
+	Object {value: 1, numberOfSides: 6, color: "red"}
+			 |					  |	     |
+			Key 				Value Pairs
+
+
