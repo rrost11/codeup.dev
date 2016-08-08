@@ -3,6 +3,7 @@
     //<--------------------------------------------------------VARIABLES--------------------------------------->
     var result = 0;
     var operator = null;
+    var pi = 3.141
     var completed = false;
     var isDecimal = false;
     //<---------------------------------------------------------ELEMENTS--------------------------------------->
@@ -25,6 +26,14 @@
                 isDecimal = false;
                 activeInput = leftInput;
                 break;
+            
+            case "pi":
+                leftInput.value = pi;
+                completed = false;
+                activeInput = centerInput;
+                operator = null;
+                break;
+
             case "divide":
                 centerInput.value = "/";
                 operator = "divide";
@@ -53,6 +62,15 @@
                 isDecimal = false;
                 activeInput = rightInput;
                 break;
+
+            case "plusminus":
+                leftInput.value = leftInput.value * -1;
+                operator = false;
+                completed = false;
+                isDecimal = false;
+                activeInput = centerInput;
+
+                break;    
             case "equals":
                 leftInput.value = doMath(parseFloat(leftInput.value), operator, parseFloat(rightInput.value));
                 rightInput.value = null;
@@ -60,6 +78,15 @@
                 isDecimal = false;
                 activeInput = leftInput;
                 break;
+
+            case "percentage":
+                centerInput.value = "%";
+                rightInput.value = null;
+                operator = "percentage";
+                completed = true;
+                isDecimal = false;
+                activeInput = leftInput;
+                break;    
             case "decimal":
                 if (!isDecimal) {
                     if (completed) {
@@ -113,6 +140,12 @@
                     right = left;
                 }
                 result = left / right;
+                return result;
+            case "percentage":
+                if (isNaN(right)) {
+                    right = left;
+                }  
+                result = right * 100;
                 return result;
             default:
                 result = 0;
