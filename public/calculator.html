@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel='stylesheet' href="/css/calculator.css" />
     <script src="/js/calculator.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+ <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
     <title> Codeup Calculator </title>
 </head>
 
 <body>
+<button type="button" class="basic">BASIC</button>
+
+<button type="button" class="basic">ADVANCED</button>
     <h1>Codeup Calculator</h1>
     <div class="entry">
         <input id="left" type="text" readonly placeholder="numbers">
@@ -23,6 +28,7 @@
             <button data-value="9" class="bumper circle"> 9 </button>
             <button data-value="divide" class="bumper circle operator"> ÷ </button>
             <button data-value="clear" class="bumper circle clear"> C </button>
+            <button data-value="square-root" class="bumper circle operator"> √ </button>
         </div>
         <div>
             <button data-value="4" class="bumper circle"> 4 </button>
@@ -30,6 +36,7 @@
             <button data-value="6" class="bumper circle"> 6 </button>
             <button data-value="multiply" class="bumper circle operator"> × </button>
             <button data-value="percentage" class="bumper circle operator"> % </button>
+            <button data-value="square" class="bumper circle operator"> n² </button>
         </div>
         <div>
             <button data-value="1" class="bumper circle"> 1 </button>
@@ -37,13 +44,15 @@
             <button data-value="3" class="bumper circle"> 3 </button>
             <button data-value="subtract" class="bumper circle operator"> - </button>
             <button data-value="pi" class="bumper circle pi"> 𝝅 </button>
+            <button data-value="exponent" class="bumper circle operator"> xⁿ </button>
         </div>
         <div>
             <button data-value="0" class="bumper circle"> 0 </button>
             <button data-value="decimal" class="bumper circle"> . </button>
             <button data-value="equals" class="bumper circle"> = </button>
             <button data-value="add" class="bumper circle operator"> + </button>
-            <button data-value="plusminus" class="bumper circle operator"> +/- </button>
+            <button data-value="plusminus" class="bumper circle operator"> ± </button>
+            <button data-value="factorial" class="bumper circle operator"> ! </button>
         </div>
     </div>
     <script src="/js/calculator.js"></script>

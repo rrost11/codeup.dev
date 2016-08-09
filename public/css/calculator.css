@@ -119,3 +119,31 @@ button.pi {
     margin-right: -25px;
     margin-bottom: 35px;
 }
+
+button.basic {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 10px;
+    margin-left: 50px;
+    margin-right: -20px;
+    font-size: 1rem;
+    font-weight: 200;
+    color: #999;
+    background-color: #ccffcc;
+    border-radius: 12px;
+    transition: all 0.1s ease-out;
+}
+
+button.basic:hover,
+
+button.basic:active {
+    background-color: #666;
+    color: #ccffcc;
+    transform: translateY(4px);
+    transition: all 0.1s ease-out;
+}
+    
+
+
+
+
