@@ -18,17 +18,19 @@
         height: 481px;
         margin-bottom: 40px;
     }
-
+    
     #map2 {
         width: 770px;
         height: 481px;
         margin-bottom: 40px;
     }
+    
     #map3 {
         width: 770px;
         height: 481px;
         margin-bottom: 40px;
     }
+    
     #map4 {
         width: 770px;
         height: 481px;
@@ -52,9 +54,9 @@
 </head>
 
 <body>
-<h3>Home To My Favorite Restaurant</h3>
+    <h3>Home To My Favorite Restaurant</h3>
     <div id="floating-panel">
-        <input id="address" type="textbox" value="Houston, TX"/>
+        <input id="address" type="textbox" value="Houston, TX" />
         <input id="submit" type="button" value="Geocode Address" />
     </div>
     <div id="map"></div>
@@ -74,38 +76,86 @@
             }
         });
 
-            var map2 = new google.maps.Map(document.getElementById('map2'), {
-                    zoom: 5,
-                    center: {
-                        lat: 29.994302,
-                        lng: -95.572164
-                   }
-        });
-                
-
-                var map3 = new google.maps.Map(document.getElementById('map3'), {
-                        zoom: 15,
-                        center: {
-                            lat: 29.994302,
-                            lng: -95.572164
-                        }
-        });
-                    var map4 = new google.maps.Map(document.getElementById('map4'), {
-                            zoom: 20,
-                            center: {
-                                lat: 29.994302,
-                                lng: -95.572164
-                            }
+        var map2 = new google.maps.Map(document.getElementById('map2'), {
+            zoom: 5,
+            center: {
+                lat: 29.994302,
+                lng: -95.572164
+            }
         });
 
-                    
-                    var geocoder = new google.maps.Geocoder();
 
-                    document.getElementById('submit').addEventListener('click', function() {
-                        geocodeAddress(geocoder, map);
-                    });
-                
-        };
+        var map3 = new google.maps.Map(document.getElementById('map3'), {
+            zoom: 15,
+            center: {
+                lat: 29.994302,
+                lng: -95.572164
+            }
+        });
+        var map4 = new google.maps.Map(document.getElementById('map4'), {
+            zoom: 20,
+            center: {
+                lat: 29.994302,
+                lng: -95.572164
+            }
+        });
+
+        var peliPeli = {lat: 29.994302, lng: -95.572164};
+
+        var marker2 = new google.maps.Marker({
+            position: peliPeli,
+            map: map2, 
+            title: 'Peli Peli - Amazing South African Cuisine'
+        });
+
+        var marker3 = new google.maps.Marker({
+            position: peliPeli,
+            map: map3, 
+            title: 'Peli Peli - Amazing South African Cuisine'
+        });
+
+        var marker4 = new google.maps.Marker({
+            position: peliPeli,
+            map: map4, 
+            title: 'Peli Peli - Amazing South African Cuisine'
+        });
+
+        var contentString = '<div id="content">' +
+            '<h1 id="firstHeading" class="firstHeading">Peli Peli Restaurant</h1>'+
+            '<p><b>Peli Peli</b>, known as South African Fusion, features ' +
+            'authentic South African delicacies along with American steak, chicken '+
+            "and seafood favorites that are prepared in Chef Paul Friedman's "+
+            'South African style. This style includes marinades, seasonings '+
+            'and spices used in South African cuisine with Dutch, Portuguese '+
+            'and Asian influences. ' + '</p>' + 
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        marker2.addListener('click', function() {
+          infowindow.open(map2, marker2);
+        });
+
+        marker3.addListener('click', function() {
+          infowindow.open(map3, marker3);
+        });
+
+        marker4.addListener('click', function() {
+          infowindow.open(map4, marker4);
+        });
+
+
+
+
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function() {
+            geocodeAddress(geocoder, map);
+        });
+
+    };
 
     function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
