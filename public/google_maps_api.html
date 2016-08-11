@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Google Maps API</title>
+  <head>
+    <title>Google Maps API
+    </title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-    html,
-    body {
+      html,
+      body {
         height: 90%;
         margin: 40px;
         padding: 0;
-    }
-    
-    #map {
+      }
+      #map {
         width: 770px;
         height: 481px;
         margin-bottom: 40px;
-    }
-    
-    #map2 {
+      }
+      #map2 {
         width: 770px;
         height: 481px;
         margin-bottom: 40px;
-    }
-    
-    #map3 {
+      }
+      #map3 {
         width: 770px;
         height: 481px;
         margin-bottom: 40px;
-    }
-    
-    #map4 {
+      }
+      #map4 {
         width: 770px;
         height: 481px;
         margin-bottom: 40px;
-    }
-    
-    #floating-panel {
+      }
+      #floating-panel {
         position: absolute;
         top: 10px;
         left: 25%;
@@ -49,77 +44,84 @@
         font-family: 'Roboto', 'sans-serif';
         line-height: 30px;
         padding-left: 10px;
-    }
+      }
     </style>
-</head>
-
-<body>
-    <h3>Home To My Favorite Restaurant</h3>
+  </head>
+  <body>
+    <h2>Home To My Favorite Restaurant
+    </h2>
     <div id="floating-panel">
-        <input id="address" type="textbox" value="Houston, TX" />
-        <input id="submit" type="button" value="Geocode Address" />
+      <input id="address" type="textbox" value="Houston, TX" />
+      <input id="submit" type="button" value="Geocode Address" />
     </div>
-    <div id="map"></div>
-    <h3>Regional Overview...</h3>
-    <div id="map2"></div>
-    <h3>And a little closer look...</h3>
-    <div id="map3"></div>
-    <h3>Here it is! I love Peli Peli!</h3>
-    <div id="map4"></div>
+    <div id="map">
+    </div>
+    <h2>Regional Overview...
+    </h2>
+    <div id="map2">
+    </div>
+    <h2>And a little closer look...
+    </h2>
+    <div id="map3">
+    </div>
+    <h2>Here it is! I love Peli Peli!
+    </h2>
+    <div id="map4">
+    </div>
     <script>
-    function initMap() {
+      function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 9,
-            center: {
-                lat: 29.7630556,
-                lng: -95.3630556
-            }
-        });
-
+          zoom: 9,
+          center: {
+            lat: 29.7630556,
+            lng: -95.3630556
+          }
+        }
+                                     );
         var map2 = new google.maps.Map(document.getElementById('map2'), {
-            zoom: 5,
-            center: {
-                lat: 29.994302,
-                lng: -95.572164
-            }
-        });
-
-
+          zoom: 5,
+          center: {
+            lat: 29.994302,
+            lng: -95.572164
+          }
+        }
+                                      );
         var map3 = new google.maps.Map(document.getElementById('map3'), {
-            zoom: 15,
-            center: {
-                lat: 29.994302,
-                lng: -95.572164
-            }
-        });
+          zoom: 15,
+          center: {
+            lat: 29.994302,
+            lng: -95.572164
+          }
+        }
+                                      );
         var map4 = new google.maps.Map(document.getElementById('map4'), {
-            zoom: 20,
-            center: {
-                lat: 29.994302,
-                lng: -95.572164
-            }
-        });
-
-        var peliPeli = {lat: 29.994302, lng: -95.572164};
-
+          zoom: 20,
+          center: {
+            lat: 29.994302,
+            lng: -95.572164
+          }
+        }
+                                      );
+        var peliPeli = {
+          lat: 29.994302, lng: -95.572164};
         var marker2 = new google.maps.Marker({
-            position: peliPeli,
-            map: map2, 
-            title: 'Peli Peli - Amazing South African Cuisine'
-        });
-
+          position: peliPeli,
+          map: map2, 
+          title: 'Peli Peli - Amazing South African Cuisine'
+        }
+                                            );
         var marker3 = new google.maps.Marker({
-            position: peliPeli,
-            map: map3, 
-            title: 'Peli Peli - Amazing South African Cuisine'
-        });
-
+          position: peliPeli,
+          map: map3, 
+          title: 'Peli Peli - Amazing South African Cuisine'
+        }
+                                            );
         var marker4 = new google.maps.Marker({
-            position: peliPeli,
-            map: map4, 
-            title: 'Peli Peli - Amazing South African Cuisine'
-        });
-
+          position: peliPeli,
+          map: map4, 
+          title: 'Peli Peli - Amazing South African Cuisine'
+        }
+                                            );
         var contentString = '<div id="content">' +
             '<h1 id="firstHeading" class="firstHeading">Peli Peli Restaurant</h1>'+
             '<p><b>Peli Peli</b>, known as South African Fusion, features ' +
@@ -129,54 +131,50 @@
             'and spices used in South African cuisine with Dutch, Portuguese '+
             'and Asian influences. ' + '</p>' + 
             '</div>';
-
         var infowindow = new google.maps.InfoWindow({
           content: contentString
-        });
-
+        }
+                                                   );
         marker2.addListener('click', function() {
           infowindow.open(map2, marker2);
-        });
-
+        }
+                           );
         marker3.addListener('click', function() {
           infowindow.open(map3, marker3);
-        });
-
+        }
+                           );
         marker4.addListener('click', function() {
           infowindow.open(map4, marker4);
-        });
-
-
-
-
+        }
+                           );
         var geocoder = new google.maps.Geocoder();
-
         document.getElementById('submit').addEventListener('click', function() {
-            geocodeAddress(geocoder, map);
-        });
-
-    };
-
-    function geocodeAddress(geocoder, resultsMap) {
+          geocodeAddress(geocoder, map);
+        }
+                                                          );
+      };
+      function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
         geocoder.geocode({
-            'address': address
-        }, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                resultsMap.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+          'address': address
+        }
+                         , function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
             }
-
-        });
-    }
+                                               );
+          }
+          else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        }
+                        );
+      }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFCn7cYf1oJSb8YI35CVZo5bKUsH3K4nQ&callback=initMap">
     </script>
-</body>
-
+  </body>
 </html>
