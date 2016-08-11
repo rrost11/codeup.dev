@@ -6,21 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>jQuery Exercises</title>
     <style>
-    .codeup {
-        
-    }
+    .codeup {}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
     "use strict";
 
-
     $(document).ready(function() {
-        
-        $('.codeup').css('border-style', 'solid');
-        $('.codeup').css('border-width', '1px');
-        $('.codeup').css('border-color', 'red');
+        $('li').css('font-size', '20px');
+        $('h1').css('background-color', 'yellow');
+        $('p').css('background-color', 'yellow');
+        $('li').css('background-color', 'yellow');
     });
+    $(document).ready(function() {
+            var contents = $('h1').html();
+            alert(contents);
+        });
     </script>
 </head>
 
