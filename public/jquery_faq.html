@@ -180,15 +180,15 @@
     $(document).ready(function() {
         $('#togglelink').click(function(event) {
             event.preventDefault();
-            $('dd').toggle();
+            $('dd').fadeToggle();
         });
     });
     var uls = $('ul');
     uls.each(function() {
         $(this).children().first().css('font-weight', 'bold');
     });
-    $('li').click(function() {
-        $('li').hide('invisible');
+    $('h3').click(function() {
+        $('li').fadeToggle();
         
     });
     </script>
