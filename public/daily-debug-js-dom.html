@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Programming books books</title>
+</head>
+
+<body>
+    <h1>See your friend's books</h1>
+    <form>
+        <label for="friend">Choose</label>
+        <select id="friend" name="friend">
+            <option value="">Friend</option>
+        </select>
+        <input type="button" value="Search">
+    </form>
+    <div id="books"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src=/js/daily-debug-js-dom.js></script>
+</body>
+
+</html>
+<!-- # Instructions
+
+This is part of an social networking application for sharing the books you are reading with your friends.
+
+This page is trying to using an array of objects to populate a select element. The select should have a list of your friends names in it. But the select is not showing up properly.
+
+Here's what the end product should look like
+
+```html
+<select id="friend" name="friend">
+  <option value="1">Oliver</option>
+  <option value="2">Barry</option>
+  <option value="3">Jessica</option>
+  <option value="4">Clark</option>
+</select>
+```
+
+**Do not** hand code this HTML, generate it with JavaScript.
+
+You can check your results by opening the `elements` tab in your chrome console. -->
