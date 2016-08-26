@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rachel's Weather Map API</title>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <style>
+    body {
+        text-align: center;
+        background-color: lightcoral;
+        border-color: solid black;
+		border-width: 5px;
+    }
+    
+    button {
+        border-radius: 5%;
+    }
+    
+    input {
+        border: solid gray 1px;
+    }
+    
+    #div.map-canvas {
+    
+        width: 770px;
+        height: 481px;
+        align-content: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="row col-md-12">The weather in <span id="loCal">...</span></h1>
+        
+        
+
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Latitude" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon1">@latitude</span>
+</div>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Longitude" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon2">@longitude</span>
+</div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <input type="text" placeholder="latitude (N+ S-)" id="lat" class="col-md-2" readonly>
+            <input type="text" placeholder="longitude (E+ W-)" id="lon" class="col-md-2" readonly>
+            <input type="text" placeholder="timezone" id="tZ" class="col-md-2">
+            <div class="col-md-2">
+                <select id="numOfDays">
+                    <option disabled selected>Select Number Of Days</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select id="timeOfD">
+                    <option disabled selected>Select Time of Day</option>
+                    <option class="d" value="3">Morning</option>
+                    <option class="d" value="5">Afternoon</option>
+                    <option class="n" value="8">Evening</option>
+                </select>
+  
+               
+            
+            </div>
+
+            
+            <div class="col-md-1"></div>
+        </div>
+        <table id="weaTheeeer" class="table table-striped"></table>
+        <div id="map-canvas"></div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFCn7cYf1oJSb8YI35CVZo5bKUsH3K4nQ"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script>
+    <script>
+    "use strict"
+    $("#lat").val(29.4284595);
+    $("#lon").val(-98.492433);
+    var lat = $("#lat").val();
+    var lon = $("#lon").val();
+    lat = parseFloat(lat);
+    lon = parseFloat(lon);
+
+    $("button").click(function() {
+        lat = $("#lat").val();
+        lon = $("#lon").val();
+        console.log(timeOfD);
+        gEt4(lat, lon);
+    });
+
+    function loopDays(data) {
+        var numOfDays = $("#numOfDays").val();
+        var timeOfD = $("#timeOfD").val();
+
+        $("#loCal").text(data.city.name + ", " + data.city.country);
+        var tZshIft = parseInt($("#tZ").val());
+        var DshIft = (data.cnt - 33) + parseInt(timeOfD) + tZshIft;
+
+        var ShiFteeer = 0;
+        for (var i = 0; i < numOfDays; i++) {
+            // // console.log(e);
+            console.log("in it to win it");
+            ShiFteeer = DshIft + (8 * i);
+            console.log(ShiFteeer);
+            taBdata(data.list, ShiFteeer);
+        };
+    };
+
+    function gEt4(lat, lon) {
+        $("#weaTheeeer").html("")
+        console.log("mememm lat " + lat)
+        console.log("memme lon " + lon)
+
+        $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/forecast",
+            type: "GET",
+            data: {
+                APPID: "b8662ed7c8c0a26934a429c0cf1c2698",
+                lat: lat,
+                lon: lon,
+                units: "imperial",
+                // cnt: 3
+            }
+        }).done(function(weatherData) {
+
+
+            console.log(weatherData);
+            // max number of days from API is 40
+            // min number of days from API is 33
+            // 8 weatherData points for each day except the 1st
+            var UTs = weatherData.list[0].dt;
+            // time zone call to goole api
+
+            $.ajax({
+                url: "https://maps.googleapis.com/maps/api/timezone/json",
+
+                data: {
+                    location: lat + "," + lon,
+                    timestamp: "1331161200",
+                    key: "AIzaSyDsGSDw6_-F7P_7EO-udpgBgJDxDdtxh90"
+                }
+            }).done(function(timezoneData) {
+                console.log(timezoneData);
+                var localTZ = [];
+                localTZ[0] = UTs + timezoneData.rawOffset + timezoneData.dstOffset;
+                localTZ[1] = (timezoneData.rawOffset + timezoneData.dstOffset) / 3600;
+                $("#tZ").val(localTZ[1])
+                console.log($("#tZ").val());
+                loopDays(weatherData);
+            }).fail(function() {
+                alert("i hate my life");
+            })
+
+        }).fail(function() {
+            alert("Head for the hills\!");
+        });
+    }
+
+    function dayOwk(dt) {
+        var tZ = $("#tZ").val();
+        tZ = tZ * 3600;
+        console.log(tZ);
+        var d = new Date(dt * 1000);
+        var BtZ = d.getTimezoneOffset() * 60;
+        d = new Date((dt + BtZ + tZ) * 1000);
+        console.log(d);
+        var weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+        return weekday[d.getDay()] + " " + d.getHours();
+    }
+    //yes I am really doing this...
+    //google api timezone key AIzaSyDsGSDw6_-F7P_7EO-udpgBgJDxDdtxh90
+    function taBdata(array, i) {
+
+        var wTh = [];
+        console.log(array[i].dt);
+        var DaY = dayOwk(array[i].dt);
+        var hEad = $("<h2>").html(DaY).addClass("row col-md-12");
+        var nDIV = $("<div>").addClass("row " + i);
+        var iCon = array[i].weather[0].icon;
+
+
+        wTh[0] = $("<h3>").html("Temperature\: " + array[i].main.temp.toFixed(0) + " degF");
+        wTh[1] = $("<div>").html("<img src='https://openweathermap.org/img/w/" + iCon + ".png' alt='weatherIcon'>");
+        wTh[2] = $("<h3>").html("Cloudiness: " + array[i].clouds.all + "%");
+        wTh[3] = $("<h3>").html("Humidity: " + array[i].main.humidity + "% RH");
+        wTh[4] = $("<h3>").html("Windspeed: " + array[i].wind.speed + " mph");
+        wTh[5] = $("<h3>").html("Atmospheric Pressure: " + array[i].main.pressure.toFixed(0) + " Pa");
+        wTh.forEach(function(e, i, array) {
+            e.addClass("col-md-2 table-striped");
+        });
+        // console.log(wTh);
+        $("#weaTheeeer").append("<div>").addClass("row " + "'" + i + "'");
+
+        wTh.forEach(function(e, i, array) {
+            $(nDIV).append(e);
+        });
+
+        $(hEad).append(nDIV);
+        $("#weaTheeeer").append(hEad);
+    };
+    var mapOptions = {
+        zoom: 4,
+        center: {
+            lat: lat,
+            lng: lon
+        }
+    }
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var marker = new google.maps.Marker({
+        position: {
+            lat: lat,
+            lng: lon
+        },
+        map: map,
+        draggable: true,
+        title: "Drag me!"
+    })
+    google.maps.event.addListener(marker, "dragend", function(event) {
+
+        var mrkPos = []
+        mrkPos[0] = this.position.lat();
+        mrkPos[1] = this.position.lng();
+
+        $("#lat").val(mrkPos[0]);
+        $("#lon").val(mrkPos[1]);
+    }); //end addListener
+    </script>
+</body>
+
+</html>
