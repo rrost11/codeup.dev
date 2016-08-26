@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weather Map API
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+    <style>
+    @import url(http://fonts.googleapis.com/css?family=Antic+Slab);
+    html,
+    body {
+        height: 100%;
+        background-color: #110022;
+    }
+    
+    h1 {
+        font-family: 'Antic Slab', serif;
+        text-align: center;
+        color: #DDCCEE;
+    }
+    
+    .lead {
+        color: #DDCCEE;
+    }
+    /* Custom container */
+    
+    #map {
+        width: 770px;
+        height: 481px;
+        margin-bottom: 40px;
+    }
+    
+    .container-full {
+        margin: 0 auto;
+        width: 100%;
+        min-height: 100%;
+        background-color: #110022;
+        color: #eee;
+        overflow: hidden;
+    }
+    
+    .container-full a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .v-center {
+        margin-top: 7%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>Weather Map API: <small>A Marriage of Google Maps &amp; Open Weather Maps</small></h1>
+    </div>
+    <div class="container-full">
+        <h1 class="row col-md-12">The weather in <span id="loCal">...</span></h1>
+        <div class="row">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Latitude" aria-describedby="basic-addon2">
+                <span class="input-group-addon" id="basic-addon1">@latitude</span>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Longitude" aria-describedby="basic-addon2">
+                <span class="input-group-addon" id="basic-addon2">@longitude</span>
+            </div>
+            <div class="col-lg-12 text-center v-center">
+                <form class="col-lg-12">
+                    <div class="select group-lg col-sm-offset-4 col-sm-4">
+                        <select id="numOfDays">
+                            <option disabled selected>Select Number Of Days
+                            </option>
+                            <option value="1">1
+                            </option>
+                            <option value="2">2
+                            </option>
+                            <option value="3">3
+                            </option>
+                            <option value="4">4
+                            </option>
+                        </select>
+                    </div>
+                    <div class="select group-lg col-sm-offset-4 col-sm-4">
+                        <select id="timeOfDay">
+                            <option disabled selected>Select Time of Day
+                            </option>
+                            <option class="d" value="3">Morning
+                            </option>
+                            <option class="d" value="5">Afternoon
+                            </option>
+                            <option class="n" value="8">Evening
+                            </option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <button class="btn btn-lg btn-primary" type="button">OK
+                    </button>
+            </div>
+            <!-- /row -->
+            
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <!-- /container full -->
+        <div class="container">
+            <table id="weaTheeeer" class="table table-striped">
+            </table>
+            <div id="map-canvas">
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+    </script>
+    <!-- JavaScript jQuery code from Bootply.com editor  -->
+    <script type='text/javascript'>
+    (function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 9,
+                center: {
+                    lat: 29.7630556,
+                    lng: -95.3630556
+                }
+            });
+        });
+            var geocoder = new google.maps.Geocoder(); document.getElementById('submit'),addEventListener('click', function() {
+                geocodeAddress(geocoder, map);
+            });
+        
+
+        function geocodeAddress(geocoder, resultsMap) {
+            var address = document.getElementById('address').value;
+            geocoder.geocode({
+                'address': address
+            }, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFCn7cYf1oJSb8YI35CVZo5bKUsH3K4nQ&callback=initMap">
+    </script>
+</body>
+
+</html>
