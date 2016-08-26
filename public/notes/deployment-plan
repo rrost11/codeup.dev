@@ -1,0 +1,22 @@
+Deployment Plan
+
+- Prerequisites:  Digital Ocean Account.  All your code committed to git/github.  A domain you want to use for your site.
+- Creat a WarpSpeed account.  Use coupon code gocodeup
+- Add Digital Ocean API Key to WarpSpeed Account
+- Add public key to WarpSpeed Account
+- Create a server
+- Create a site
+- Deploy your code
+
+
+#Side Topics
+
+- Ways people hosts websites
+- Ways people deploy code
+- What is an API key?
+- What is this public key business?
+- Async Processing.
+- DNS
+- Known hosts
+
+Digital Ocean is a virtual private server provider.

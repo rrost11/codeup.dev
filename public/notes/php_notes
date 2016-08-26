@@ -1,0 +1,72 @@
+Full Stack = Front End + Back End
+
+	= client languages + server side
+
+Persistence = saving things
+
+Back end == Server side
+
+- talk to the server
+- read/write files and database
+- accept requests
+	GET = donwload request
+	POST = upload request
+- determine the appropriate response
+	200 OK
+	404 error - page not found
+	500 errors - server side errors
+
+PHP - PHP the Hypertext Preprocessor
+assembles HTML with variables
+
+Security
+
+Server Side Languages
+	Ruby
+	Python
+	Perl
+	C#, .NET
+	Java
+	node.js
+	C
+	C++
+	Objective C
+	Swift
+	LISP
+
+	Syntax is the same for
+		operators
+		if, switch, if else,
+		while, dowhile,
+		functions		
+
+Differences between JS and PHP
+PHP is a little more strict on data types
+
+Commands
+
+	vagrant ssh
+	hostname
+	ls
+	ls -la
+	pwd (print working directory)
+
+
+cd ~/vagrant-lamp/
+vagrant status
+vagrant up
+vagrant ssh
+vagrant -a from your vagrant box
+
+
+
+
+
+
+
+
+
+
+
+
+
