@@ -1,28 +1,39 @@
 <?php
-function pageController(){
 
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
-$message = '';
+session_start();
 
-// check if the form was submitted
+// using session info to create a smooth user experience
+// check if the user is already logged in
+// check if the $_SESSION superglobal has any info for a logged in user
 
-if(!empty($_POST)){
-	if($username == 'username' && $password == 'password') {
-		header('Location: authorized.php');
-		die();
-	} else {
-	$message = "Username or Password is incorrect";
+function pageController() {
+
+// check to see if user has submitted the form
+if(!empty($_POST)) {
+
+// if so, check both the password and the username
+// if both are correct, set key=>value pairs on $_SESSION that store the username
+
+	if($_POST['username'] === 'guest' && $_POST['password'] === 'password') {
+
+		// "log in the user"
+		$_SESSION['username'] = $_POST['username'];
+
 	}
+
 }
-return [
-'username' => $username,
-'password' => $password,
-'message' => $message
-];
+
+// check if the user is logged in and forward them to the authroized page
+if(isset($_SESSION['username'])) {
+	header("Location: authorized.php");
+	die();
 }
-extract(pageController());
+
+}
+
+pageController();
 ?>
+
 
 <!DOCTYPE HTML>
 <html>
@@ -31,16 +42,16 @@ extract(pageController());
     <link rel=stylesheet href="/css/login.css">
 </head>
 <body>
-<h1><? echo $message; ?></h1>
    <div class="container">
         <div class="card card-container">
-            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <h1>Login</h1>
+            
+            <img id="profile-img" class="profile-img-card" src="/img/avatar.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form method="POST" action="login.php" class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="inputEmail" name='username' class="form-control" placeholder="Username" autofocus>
-                <input type="password" name='password' id="inputPassword" class="form-control" placeholder="Password">
+              
+                <input type="text" id="username" name='username' class="form-control" placeholder="username" autofocus>
+                <input type="password" name='password' id="inputPassword" class="form-control" placeholder="password">
                 <button name='submit' class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Submit</button>
             </form><!-- /form -->
         </div><!-- /card-container -->
