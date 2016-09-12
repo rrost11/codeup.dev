@@ -21,3 +21,9 @@
     </form>
 </body>
 </html>
+
+
+
+<?php foreach ($allItems as $item): ?>
+    <li><?php echo htmlspecialchars(strip_tags($item)); ?></li>
+<? endforeach; ?>
