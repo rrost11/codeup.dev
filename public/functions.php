@@ -31,10 +31,15 @@ function inputGet($key) {
 	// return the value specificied by the key
 	// or return null if the key is not set
 	if(inputHas($key)) {
-		return 
+		return $_REQUEST[$key];
+	} else {
+		return null;
 	}
 
+}
 
+function escape($string) {
+	return htmlspecialchars(strip_tags($string));
 }
 
 
