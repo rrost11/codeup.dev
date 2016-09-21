@@ -1,0 +1,134 @@
+# Database Users
+
+---
+
+- MySQL supports different users with different permissions
+
+    - Why?
+
+- see who we are
+
+    1. Start the `mysql` client
+
+        ```
+        # From your mac
+        cd ~/vagrant-lamp
+        vagrant ssh
+        # in the vagrant box
+        mysql -u vagrant -p
+        ```
+
+    2. run a sql command
+
+        ```
+        SELECT current_user;
+        ```
+
+- `SELECT`
+- note the `@localhost`
+
+---
+
+## Listing Users
+
+```sql
+SELECT user, host, password FROM mysql.user;
+```
+
+- note that passwords are hashed
+- `SELECT`
+    - we'll get into more detail later
+
+    ```sql
+    SELECT things FROM database.table;
+    ```
+
+---
+
+## Creating a User
+
+```sql
+CREATE USER 'billy'@'localhost' IDENTIFIED BY 'billysSecretP@ass123';
+```
+
+```sql
+CREATE USER 'sally'@'192.168.77.1' IDENTIFIED BY 'passwordForSally321';
+```
+
+### Host Wildcards
+
+```sql
+CREATE USER 'sally'@'192.168.%' IDENTIFIED BY 'passwordForSally321';
+```
+
+```sql
+CREATE USER 'sally'@'%' IDENTIFIED BY 'passwordForSally321';
+```
+
+Be careful here
+
+---
+
+## Privileges
+
+All priveleges
+
+```sql
+GRANT ALL ON *.* TO 'billy'@'localhost';
+```
+
+Fine grained by command, database, and table
+
+```sql
+GRANT SELECT ON *.* TO 'read_only'@'%';
+```
+
+```sql
+GRANT SELECT, INSERT, UPDATE, DELETE ON db.table TO 'sally'@'192.168.77.1';
+```
+
+```sql
+GRANT CREATE, ALTER, INSERT, DROP ON office_db.* TO 'office_user'@'192.168.77.%';
+```
+
+Ability to grant others permissions
+
+```sql
+GRANT ALL ON *.* TO 'billy'@'localhost' WITH GRANT OPTION;
+```
+
+---
+
+## Dropping a User
+
+```sql
+DROP USER 'sally'@'192.168.77.1';
+```
+
+**_Be Careful!_**
+
+## Using Ansible To Create an Admin
+
+```bash
+ansible-playbook ansible/playbooks/vagrant/mysql/admin.yml
+```
+
+same as
+
+```sql
+CREATE USER 'my_username'@'localhost' IDENTIFIED BY 'this_is_my_password';
+GRANT ALL ON *.* TO 'my_username'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+We'll see how to use ansible with MySQL further later.
+
+---
+
+## Exercise
+
+### Exercise Goals
+
+- Create users that can connect from various hosts with different privileges
+- Log in as the users we've created to test and understand privileges
+- Use ansible to create a new db admin user
