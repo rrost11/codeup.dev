@@ -1,7 +1,7 @@
 <?php
 
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'parks_db');
+define('DB_NAME', 'national_parks');
 define('DB_USER', 'parks_user');
 define('DB_PASS', 'Els3vier');
 
@@ -16,6 +16,7 @@ CREATE TABLE national_parks (
     location VARCHAR(240) NOT NULL,
     date_established DATE NOT NULL,
     area_in_acres DOUBLE NOT NULL,
+    description TEXT,
     PRIMARY KEY (id)
 )
 QUERY;
