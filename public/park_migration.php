@@ -3,7 +3,7 @@
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'national_parks');
 define('DB_USER', 'parks_user');
-define('DB_PASS', 'Els3vier');
+define('DB_PASS', 'codeup');
 
 require_once 'db_connect.php';
 
