@@ -1,60 +1,61 @@
 <?php
+require_once 'functions.php';
 
-require_once '../bootstrap.php';
-
-function attemptLogin()
-{
-    $username = Input::get('username', '');
-    $password = Input::get('password', '');
-
-    if (Auth::attempt($username, $password)) {
-        Auth::login($username);
-        Auth::redirect('/authorized.php');
+function pageController() {
+    $data = ['message' => '', 'title' => 'Login'];
+    if (isUserAuthenticated()) {
+        redirect('authorized.php');
     }
+    if (!isPost()) {
+        return $data;
+    }
+    if (authenticate(input('username'), input('password'))) {
+        redirect('authorized.php');
+    }
+    $data['message'] = 'Your username or password are incorrect...';
+    return $data;
 }
 
-function pageController()
-{
-    $message = 'Please Log In.';
-
-    if (Auth::check()) {
-        Auth::redirect('authorized.php');
-    }
-
-    if (Request::isPost()) {
-        attemptLogin();
-        $message = 'Wrong Username or Password.';
-    }
-
-    return [
-        'message' => $message,
-    ];
-}
-
+session_start();
+var_dump($_SESSION);
 extract(pageController());
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
-    <h1><?= $message ?></h1>
-    <form class="form" method="POST">
-        <div class="form-group">
-            <label for="">Username</label>
-            <input name="username" class="form-control">
+<html>
+    <?php include '../header.php' ?>
+    <body>
+        <div class="container">
+            <h1>Login</h1>
+            <h2><?= $message ?></h2>
+            <form method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="">Password</label>
-            <input name="password" class="form-control" type="password">
-        </div>
-        <input class="btn btn-primary btn-block" type="submit">
-    </form>
-</div>
-</body>
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>

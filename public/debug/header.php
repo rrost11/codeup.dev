@@ -9,10 +9,12 @@
         crossorigin="anonymous"
     >
     <title><?= $title ?></title>
-    <!-- [if lt IE 9]> -->
+    <!--[if lt IE 9]>
     <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
     </script>
     <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js">
     </script>
-    <!-- <![endif] -->
+    <![endif]-->
 </head>
+```
+

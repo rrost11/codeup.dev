@@ -1,79 +1,94 @@
 <?php
 
+require_once 'Log.php';
+require_once '../models/User.php';
+
 class Auth
 {
 
-    public static $password = '$2y$10$tdUUvfUsj1IcQIHsBtfoZuYlBk9Bl4fpILbqzGdJdksaIJtr17WBK';
-    public static $username = 'guest';
-
-    /**
-     *  Checks if a username and password combination is valid
-     *
-     *  @param string $username the username to check
-     *  @param string $password the password to check
-     *  @return bool true or false depending on whether the attemt succeeded
-     **/
+    // runs login attempt with parameters
     public static function attempt($username, $password)
     {
-        $logger = new Log();
 
-        $validUsername = strtolower($username) == self::$username;
-        $validPassword = password_verify($password, self::$password);
+        // makes sure the values passed in are not empty
+        if(($username == '' || $username == null) || ($password == '' || $password == null))
+        {
 
-        if ($validUsername && $validPassword) {
-            $logger->info("$username logged in.");
+            $_SESSION['ERROR_MESSAGE'] = 'Login information was incorrect';
+            return false;
+        }
+
+        // gets instance of user model by searching with username or email($username)
+        $user = User::findByUsernameOrEmail($username);
+
+        // makes sure the instance returned is not empty
+        if ($user == null)
+        {
+
+            $_SESSION['ERROR_MESSAGE'] = 'Login information was incorrect';
+            return false;
+        }
+
+        // checks password submitted against hashed password
+        if (password_verify($password, $user->password))
+        {
+
+            // sets session variables used for logged in user
+            $_SESSION['IS_LOGGED_IN'] = $user->username;
+            $_SESSION['LOGGED_IN_ID'] = $user->id;
+
             return true;
         }
 
-        $logger->info("$username failed to log in.");
+        $_SESSION['ERROR_MESSAGE'] = 'Login information was incorrect';
         return false;
     }
 
-    /**
-     * Logs a user into the application
-     *
-     * @param string $username username to log into the application
-     **/
-    public static function login($username)
-    {
-        $_SESSION['logged_in_user'] = $username;
-    }
-
-    /**
-     * checks whether a user is logged in
-     *
-     * @return bool true if user is logged in, false otherwise
-     **/
+    // checks session to see if user is logged in
     public static function check()
     {
-        return isset($_SESSION['logged_in_user']);
+
+        return (isset($_SESSION['IS_LOGGED_IN']) && $_SESSION['IS_LOGGED_IN'] != '');
     }
 
-    /**
-     * returns the logged in user
-     *
-     * @return string the username of the logged in user
-     **/
+    // returns id of the currently logged in user
+    public static function id()
+    {
+
+        if (Auth::check())
+        {
+
+            return $_SESSION['LOGGED_IN_ID'];
+        }
+
+        return null;
+    }
+
+    // returns instance of the user model for the user that is currently logged in
     public static function user()
     {
-        return self::check() ? $_SESSION['logged_in_user'] : null;
+
+        if (self::check())
+        {
+
+            return User::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
+        }
+
+        return null;
     }
 
+    // clears session variables(logs out user)
     public static function logout()
     {
+
+        // clear $_SESSION array
         session_unset();
+
+        // delete session data on the server and send the client a new cookie
         session_regenerate_id(true);
-    }
 
-    /**
-     * send a header Location: to a specified url and kill the script
-     *
-     * @param string $url the url to redirect to
-     **/
-    public static function redirect($url)
-    {
-        header("Location: $url");
-        die;
+        return true;
     }
-
 }
+
+?>

@@ -1,6 +1,10 @@
 <?php
+require_once 'functions.php';
 
-require_once '../bootstrap.php';
+function pageController() {
+    clearSession();
+    redirect("login.php");
+}
 
-Auth::logout();
-Auth::redirect('/login.php');
+session_start();
+pageController();
