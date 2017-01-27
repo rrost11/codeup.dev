@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- CSS Files
+================================================== -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- loader -->
+<div class="loader">
+     <div class="spinner">
+		  <div class="double-bounce1"></div>
+		  <div class="double-bounce2"></div>
+	 </div>
+</div>
+<!-- /loader -->
+
+
+<!-- wrapper -->
+
+<!-- content wrapper -->  
+<div class="content-wrap">       
+            
+     
+   
+
+          
+          <!-- leftside bar -->
+          <div class="bg-white t-pad30">
+    		  
+              <div class="container pad-container">
+              
+      			   <div class="row t-mgr30 b-mgr30">
+                   
+                        <div class="col-sm-8 content">
+                             
+                             <div class="product-grid col3">
+                      
+                                    <!-- product -->
+                                    <article class="post brd0">
+                                            <figure>
+                                                  
+                                       <a href="product-single.html"><img src="{{ $item->manufacturer->image }}" alt="" /></a>                                            </figure>
+                                            <section class="post-content">
+                                                
+                                                 <h5>{{ $item->manufacturer->name }}</h5>
+                                                 <h5>{{ $item->model }}</h5>
+                                                 <div class="price">
+                                                      <del><span>$99</span></del>
+                                                      <span>{{ $item->price }}</span>
+                                                 </div>
+                                                 <a href="{{ action('OrderController@addToCart', ['id' => $item->id])}}" class="info btn btn-info btn-md" style="cursor:pointer; background-color: #ca6924; font-family: thunder; border-color: transparent;" data-id="{{$item->id}}">Add to Order</a>
+                                           </section>
+                                           
+                                    </article>
+                
+                                    <!-- / product -->
+                               
+                              </div>
+                              
+                              <div class="clearfix"></div>
+                              <div class="sep30"></div>
+                    
+                             
+                        </div>
+                        
+                        <div class="col-sm-4 sidebar">
+                        
+                        	 <form method="post" id="contact-form" action="product-sidebar.html#"> 
+                                   <input name="search" type="text" value="" placeholder="Search Here" class="alt"/>
+                             </form>
+                             
+                             <h3 class="title-left">Shopping Cart</h3>
+                             <div class="cart">
+                                 
+                            </div>
+                        
+                             <h3 class="title-left t-mgr30">Categories</h3>
+                                 <ul class="circled">
+                                     <li><a href="product-sidebar.html#">Web Design</a></li>
+                                     
+                                </ul>
+                             <div class="sep30"></div>
+                        
+                             <h3 class="title-left">Recent Posts</h3>
+                        
+                                 <ul class="row">
+                                     <li>
+                                        <div class="meta">
+                                             <h5><a href="blog-single-post.html">Post with preview image</a></h5>
+                                             <em class="small">10th March 2015</em> </div>
+                                      </li>
+                                      
+      
+                                </ul>
+                                
+                            <div class="sep30"></div>
+                        
+                            <h3 class="title-left">Tags</h3>
+                            
+                                <div class="row">
+                                     <div class="tags">
+                                          <ul>
+                                             <li><a href="product-sidebar.html#">Business</a></li>
+                                             <li><a href="product-sidebar.html#">Wordpress</a></li>
+                                            
+                                           </ul>
+                                     </div>
+                                </div>
+                         
+                        </div>
+        
+                        
+     			 </div>
+    
+   			 </div>
+ 		  
+          </div>
+          
+          
+                
+<!--/content wrapper -->
+	
+        
+<!-- JS Files
+================================================== -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+</html>
